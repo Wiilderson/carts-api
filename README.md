@@ -6,11 +6,13 @@ Aplicação para listar e tratar dados de uma API.
 ### Server Back Node
 
 Fazer instalação dos pacotes com `npm install`;
-Inicialziar o servidor com `npm start` na pasta backend para rodar aplicação; 
+
+Inicializar o servidor com `npm start` na pasta backend para rodar aplicação; 
 
 ### Angular inicialiação
 
 Fazer instalação dos pacotes dentro da pasta carts-shopping com `npm install`;
+
 Rodar `ng serve` para inicializar a aplicação Angular. 
 
 ### Tecnologias Utilizadas ⌨
