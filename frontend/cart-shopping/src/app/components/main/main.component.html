@@ -1,0 +1,75 @@
+<div class="container mt-5">
+  <form class="form-inline my-2 my-lg-0" (ngSubmit)="getCartsById()">
+    <input
+      class="form-control mr-sm-2 mb-2"
+      type="search"
+      placeholder="Pesquise por Id"
+      aria-label="Pesquisar"
+      name="id"
+      [(ngModel)]="id"
+    />
+    <button class="btn btn-primary my-2 my-sm-0" type="submit">
+      Pesquisar
+    </button>
+
+    <button class="btn btn-success my-2 my-sm-0 ms-2" (click)="getAllCarts()">
+      Todos Carts
+    </button>
+  </form>
+
+  <div class="mt-4 text-center">
+    <div *ngIf="loading">
+      <p class="p">Carregando...</p>
+    </div>
+  </div>
+
+  <div>
+    <div *ngIf="infosCarregadas" class="row d-flex flex-wrap gap-3 ms-1">
+      <div
+        class="card bg-color col-md-3"
+        style="width: 18rem"
+        *ngFor="let item of cartsById"
+      >
+        <div class="card-body bg-light">
+          <h5 class="card-title bg-transparent">Cart n:{{ item.idCart }}</h5>
+          <h6 class="card-title bg-transparent">Nome: {{ item.nameUser }}</h6>
+          <span class="bg-transparent"> e-mail: {{ item.emailUser }} </span>
+          <p class="card-text bg-transparent mt-3">Produtos:</p>
+          <div
+            class="card-text bg-transparent"
+            *ngFor="let prod of item.products"
+          >
+            <p class="card-text bg-transparent mt-3">
+              {{ prod.title }}
+            </p>
+          </div>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div *ngIf="todasInfosCarregadas" class="row d-flex flex-wrap gap-3 ms-1">
+      <div
+        class="card bg-color col-md-3"
+        style="width: 18rem"
+        *ngFor="let cart of carts"
+      >
+        <div class="card-body bg-light">
+          <h5 class="card-title bg-transparent">Cart n:{{ cart.idCart }}</h5>
+          <h6 class="card-title bg-transparent">Nome: {{ cart.nameUser }}</h6>
+          <span class="bg-transparent"> e-mail: {{ cart.emailUser }} </span>
+          <p class="card-text bg-transparent mt-3">Produtos:</p>
+          <div
+            class="card-text bg-transparent"
+            *ngFor="let prod of cart.products"
+          >
+            <p class="card-text bg-transparent mt-3">
+              {{ prod.title }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
