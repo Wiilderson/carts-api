@@ -1,0 +1,97 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Manipulação de API externa",
+        "description": "Tratamento de api externa e enviando para frontend",
+        "termsOfService": "https://example.com/terms/",
+        "contact": {
+            "name": "Wilderson",
+            "email": "wildersonazeved@gmail.com"
+        },
+        "version": "1.0.1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/api",
+            "description": "API de teste"
+        }
+    ],
+    "paths": {
+        "/cart-history": {
+            "get": {
+                "description": "Buscando todos dados da API de teste",
+                "sumary": "Busca dos carts",
+                "tags": [
+                    "carts"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            " application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "$ref": "#/components/schemas/carts"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/cart-history/{id}": {
+            "get": {
+                "description": "Buscando dados com ID do usuario",
+                "sumary": "Busca dos carts por ID dos usuarios",
+                "tags": [
+                    "carts"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id do usuario para buscar",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "content": {
+                            " application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "$ref": "#/components/schemas/carts"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "carts": {
+                "type": "object",
+                "properties": {
+                    "idCart": {
+                        "type": "number"
+                    },
+                    "idUser": {
+                        "type": "number"
+                    },
+                    "emailUser": {
+                        "type": "string"
+                    },
+                    "nameUser": {
+                        "type": "string"
+                    },
+                    "productsCart": {
+                        "type": "Array"
+                    }
+                }
+            }
+        }
+    }
+}
